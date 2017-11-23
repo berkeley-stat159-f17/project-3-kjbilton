@@ -1,0 +1,24 @@
+name: oakland
+
+channels:
+    - conda-forge
+    - defaults
+
+dependencies:
+    - python=3.6
+    - numpy
+    - matplotlib
+    - pandas
+    - xlrd
+    - geojsonio
+    - seaborn
+    - nb_conda
+    - pytables
+    - h5py
+    - scikit-learn
+    - scipy
+
+    - pip:
+        - watermark
+        - shapely
+        - geopandas
