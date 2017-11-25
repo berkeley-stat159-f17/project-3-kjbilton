@@ -17,8 +17,10 @@ dependencies:
     - h5py
     - scikit-learn
     - scipy
+    - cython
 
     - pip:
         - watermark
         - shapely
         - geopandas
+        - cartopy
