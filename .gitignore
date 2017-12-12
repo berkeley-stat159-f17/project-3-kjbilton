@@ -1,4 +1,6 @@
 .DS_Store
+.ipynb_checkpoints/
 */.DS_Store
-results/
 notebooks/.ipynb_checkpoints/*
+fig/
+results/

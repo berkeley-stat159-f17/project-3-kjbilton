@@ -1,16 +1,34 @@
-# Your Title here
+# Quantifying Gentrification through Contextual Information
 
 ## Overview
-This readme should be written by you, providing a high-level summary for newcomers of what the repository is about, what's where, and what to do to either read the main article or run the various analyses.
+In this project, I explore potential methods of quantifying gentrification through the use of contextual clues and non-economic data (e.g., reports of graffiti). In particular, I explore these methods in the city of Oakland, California, where the nearby technology industry has introduced a wave of high earners in the West side of the city.
 
-You don't need to replicate your main scientific narrative here, a repository README is meant to convey to anyone who finds your repo a few high-level things, for example:
+An analysis is presented in the form of Jupyter notebooks, using standard Python data science and geospatial analysis tools to generate results. The structure of the repository is:
 
-- Purpose of the repository.
-- Basic instructions to use it: what to install, if any, what to run, etc.  This will vary a lot from repo to repo, so use your judgment.
-- A brief description of what is where (e.g. what important directories are included).
-- Licensing conditions.
+- main.ipynb
+    - A summary of results and methods used.
+- notebooks
+    - A directory containing sequential Jupyter notebooks for reproducing the analyses.
+- fig
+    - A directory containing figures generated in the analysis.
 
-Look around on Github for inspiration on what people include in their READMEs that you find useful and informative. The [Reproducible Research section](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks#reproducible-academic-publications) of the Jupyter Notebook Gallery includes a number of research-oriented links that may be useful.
+## Usage
+### Environment
+You must first have conda installed before the environment can be built. To install the environment, run
+
+```
+make env
+```
+
+This command will create a conda environment named `oakland` with all Python packages required to run the analyses.
+
+### Running the analyses
+All code can be ran and figures saved by running
+```
+make all
+```
+
+Alternatively, one can run all notebooks individually and explore intermediate results along the way.
 
 ## Data Terms of Use
 Air quality data (the “Data”) is provided by Google/Aclima and data analysis by Apte et al/Environmental Defense Fund, Incorporated (“EDF”). EDF owns all rights to this data. By using the Data, you (the "User") are agreeing to the Terms of Use outlined by EDF. Please read and agree to the End User Terms [here](https://www.edf.org/airqualitymaps/download-oakland-air-pollution-data). If the User decides to use the Data further in another project, all users of that project must also agree to be bound by the terms set by EDF.

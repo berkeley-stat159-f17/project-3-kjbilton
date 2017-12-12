@@ -1,4 +1,4 @@
-name: oakland
+name: test
 
 channels:
     - conda-forge
@@ -14,7 +14,7 @@ dependencies:
     - seaborn
     - nb_conda
     - pytables
-    - h5py
+#    - h5py                  # Should this be here?
     - scikit-learn
     - scipy
     - cython
@@ -23,4 +23,4 @@ dependencies:
         - watermark
         - shapely
         - geopandas
-        - cartopy
+#        - cartopy           # Should this be here?
