@@ -27,5 +27,11 @@ All code can be ran and figures saved by running
 ```
 make all
 ```
-
 Alternatively, one can run all notebooks individually and explore intermediate results along the way.
+
+### Testing
+Modules can be tested from the top-level directory with the command
+```
+pytest
+```
+This runs all tests within the `test` directory.
