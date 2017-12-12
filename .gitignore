@@ -4,3 +4,5 @@
 notebooks/.ipynb_checkpoints/*
 fig/
 results/
+.cache
+*/__pycache__
