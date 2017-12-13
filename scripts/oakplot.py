@@ -1,8 +1,25 @@
 import matplotlib.pyplot as plt
 from matplotlib.collections import PatchCollection
 from mpl_toolkits.basemap import Basemap
+from descartes import PolygonPatch
 import shapely
 
+def counts_in_neighborhood(data, category):
+    """ Returns the number of occurences for a specific category type in a
+        DataFrame.
+
+    Parameters
+    ----------
+    data : DataFrame
+        DataFrame containing service requests.
+    category : str
+        String corresponding to service request category in DataFrame.
+    """
+    n_category = (data[data['REQCATEGORY'] == category]
+                    .groupby('neighborhood')['REQUESTID'].count())
+    n_category.rename(f'N_{category}', inplace=True)
+
+    return n_category
 
 def neighborhood_heat_map(data, col, coords=None, label=None, ax=None,
                           xpixels=2000):

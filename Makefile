@@ -1,23 +1,12 @@
 # Create conda environment
 # ====================================
 .PHONY : env
-CONDA_REQUIREMENTS=environment.yml
+CONDA_REQUIREMENTS=test_environment.yml
 # Get the environment name from environment.yml
-ENV=$(shell head -n 1 environment.yml | cut -f2 -d ' ')
+ENV=$(shell head -n 1 $(CONDA_REQUIREMENTS) | cut -f2 -d ' ')
 env : $(CONDA_REQUIREMENTS)
-	# Check if the environment exists
-	if [[ $(conda env list | grep $(ENV)) ne 0]]; then
-		echo "Conda env '$(ENV)' exists. Reinstalling now."
-		# Check if you are already in the environment
-		if [[ $(PATH) == *$(ENV)* ]]; then
-			source deactivate
-		fi
-		conda env remove -n $(ENV) -y
-	fi
-	# Create the environment and activate
-	echo "Creating conda env '$(ENV)'."
+	@echo "Creating conda env '$(ENV)'."
 	conda env create -f $(CONDA_REQUIREMENTS)
-	source activate $(ENV)
 
 # Run all notebooks
 # ====================================
