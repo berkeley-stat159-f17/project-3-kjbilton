@@ -11,21 +11,22 @@ env : $(CONDA_REQUIREMENTS)
 # Run all notebooks
 # ====================================
 .PHONY : all
-NOTEBOOKS=$(wildcard *.ipynb)
-NBS=$(patsubst %.ipynb, %nb, $(NOTEBOOKS))
+NOTEBOOKDIR=notebooks/
+NOTEBOOKS=$(wildcard $(NOTEBOOKDIR)*.ipynb)
+NBS=$(patsubst $(NOTEBOOKDIR)%.ipynb, %nb, $(NOTEBOOKS))
 all : $(NBS)
 
 # Run a notebook
 # ====================================
 TIMEOUT=600
 .PHONY : %nb
-%nb: %.ipynb
+%nb: $(NOTEBOOKDIR)%.ipynb
 	jupyter nbconvert \
 		--ExecutePreprocessor.timeout=$(TIMEOUT) \
 		--ExecutePreprocessor.kernel_name=python3 \
 		--to notebook \
 		--execute $< \
-		--output $<
+		--output $(patsubst $(NOTEBOOKDIR)%.ipynb, %.ipynb, $<)
 
 # Clean: remove intermediate results
 # ====================================
