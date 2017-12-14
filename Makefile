@@ -1,7 +1,7 @@
 # Create conda environment
 # ====================================
 .PHONY : env
-CONDA_REQUIREMENTS=test_environment.yml
+CONDA_REQUIREMENTS=environment.yml
 # Get the environment name from environment.yml
 ENV=$(shell head -n 1 $(CONDA_REQUIREMENTS) | cut -f2 -d ' ')
 env : $(CONDA_REQUIREMENTS)
